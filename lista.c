@@ -5,6 +5,7 @@
 #include "musica.h"
 
 void abertura(){
+    system("cls");
     printf("=====================================\n");
     printf("+         LISTA DE MUSICAS          +\n");
     printf("=====================================\n");
@@ -15,25 +16,41 @@ void abertura(){
 
 }
 
+void decideseacabou(int* acabar){
+    char resposta;
+    printf("\nDESEJA CONTINUAR NO PROGRAMA? (S/N)\n");
+    scanf(" %c", &resposta);
+    if(resposta == 'S'){
+        (*acabar) =  0;
+    }else{
+        (*acabar) = 1;
+    }
+}
+
 
 
 int main(){
+    int acabou = 0;
+    do{
+        abertura();
 
-    abertura();
+        int opcao;
+        scanf("%d", &opcao);
 
-    int opcao;
-    scanf("%d", &opcao);
-
-    switch (opcao){
+            switch (opcao){
     
-    case 1:mostramusica();
-        break;
-    case 2: adicionarmusica();
-        break;
-    case 3: printf("APERTOU 3");
-        break;
+            case 1:mostramusica();
+                break;
+            case 2: adicionarmusica();
+                break;
+            case 3: printf("APERTOU 3");
+                break;
 
-    default:
-        break;
-    }
+            default:
+                break;
+            }
+
+            decideseacabou(&acabou);
+    }while(!acabou);
+    
 }

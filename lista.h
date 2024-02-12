@@ -1,1 +1,1 @@
-#define TAMANHO_PALAVRA 50
+void abertura();
